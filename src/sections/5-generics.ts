@@ -64,11 +64,7 @@ export default function () {
   function parseFromLocalStorage<T>(key: string): T | null {
     const value = localStorage.getItem(key);
     if (value) {
-      try {
         return JSON.parse(value) as T;
-      } catch (error) {
-        console.error("Error parsing from local storage:", error);
-      }
     }
     return null;
   }

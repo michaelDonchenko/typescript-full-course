@@ -1,25 +1,24 @@
 export default function () {
   // Primitives string, number, boolean
-  type StringType = string;
-  type NumberType = number;
-  type BooleanType = boolean;
-
   const someString = "Hello world";
   const someNumber = 10;
   const someBoolean = true;
 
+  console.log(someString.at(0));
+
   // Array
   type ArrayOfStrings = string[];
-  type ArrayOfNumbers = Array<NumberType>;
+  type ArrayOfNumbers = Array<number>;
 
   const someArray = ["Hello", "world"];
-  let arrayOfNumbers: ArrayOfNumbers;
+  let arrayOfNumbers: ArrayOfNumbers = [1, 2];
 
   // Type Annotations on Variables
   const myName: string = "Alice";
 
   // Any
   let obj: any = {x: 0};
+
   // None of the following lines of code will throw compiler errors.
   // Using `any` disables all further type checking, and it is assumed
   // you know the environment better than TypeScript.
@@ -111,8 +110,6 @@ export default function () {
   }
 
   printCoordWithTypeAliases({x: 100, y: 100});
-
-  type ID = number | string;
 
   // Interfaces
   interface PointI {
