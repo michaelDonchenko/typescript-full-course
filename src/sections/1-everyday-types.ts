@@ -3,8 +3,10 @@ export default function () {
   const someString = "Hello world";
   const someNumber = 10;
   const someBoolean = true;
-
   console.log(someString.at(0));
+
+  // Type Annotations on Variables
+  const myName: string = "Alice";
 
   // Array
   type ArrayOfStrings = string[];
@@ -13,8 +15,21 @@ export default function () {
   const someArray = ["Hello", "world"];
   let arrayOfNumbers: ArrayOfNumbers = [1, 2];
 
-  // Type Annotations on Variables
-  const myName: string = "Alice";
+  // Tuple
+  const employee: [number, string] = [1, "Steve"];
+
+  let state: string;
+  const tupleExample = [
+    (state = ""),
+    function setState(newState: string) {
+      state = newState;
+    },
+  ] as const;
+
+  tupleExample.push("Not going to work!");
+  const [_, setState] = tupleExample;
+
+  setState("new value");
 
   // Any
   let obj: any = {x: 0};
