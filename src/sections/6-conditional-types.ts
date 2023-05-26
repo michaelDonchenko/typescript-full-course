@@ -39,18 +39,18 @@ export default function main() {
 
   type EmailMessageContents = MessageOf<Email>;
 
-  interface EvenDiggerObject {
-    message: string;
+  interface EvenBiggerObject {
+    message: {text: string};
     statusCode: number;
     data: Array<string>;
   }
 
-  type MessageType = MessageOf<EvenDiggerObject>;
+  type MessageType = MessageOf<EvenBiggerObject>;
 
   // More Examples
   type FileTypes = "mp3" | "mp4" | "pdf" | "zip" | "png" | "gif";
   type FilterMediaFileTypes<T> = T extends "mp3" | "mp4" ? T : never;
 
   type MediaFileTypes = FilterMediaFileTypes<FileTypes>;
-  const mediaFile: MediaFileTypes = "zip";
+  const mediaFile: MediaFileTypes = "mp3";
 }

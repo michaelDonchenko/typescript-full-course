@@ -5,12 +5,12 @@ export default function () {
   type C = Awaited<boolean | Promise<number>>;
 
   // Partial
-  interface Todo {
+  interface Todo2 {
     title: string;
     description: string;
   }
 
-  function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+  function updateTodo(todo: Todo2, fieldsToUpdate: Partial<Todo>) {
     return {...todo, ...fieldsToUpdate};
   }
 
@@ -118,13 +118,13 @@ export default function () {
 
   // Parameters<Type>
   type T8 = Parameters<() => string>;
-  type T9 = Parameters<<T>(arg: T) => T>;
+  type T9 = Parameters<(arg: string) => void>;
 
   type T10 = (arg: {a: number; b: string}) => void;
   type T11 = Parameters<T10>;
 
   // ReturnType<Type>
-  type T12 = () => {a: number; b: string};
+  type T12 = () => null;
 
   type T13 = ReturnType<T12>;
 }

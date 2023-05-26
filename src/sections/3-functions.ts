@@ -65,19 +65,22 @@ export default function () {
   const parsed = map(["1", "2", "3"], (n) => parseInt(n));
 
   // Constrained values
-  function minimumLength<Type extends {length: number}>(obj: Type, minimum: number): Type {
+  function minimumLength<Type extends {length: number}>(
+    obj: Type,
+    minimum: number
+  ): Type | undefined {
     if (obj.length >= minimum) {
       return obj;
     } else {
-      return {length: minimum};
+      return undefined;
     }
   }
 
   // 'arr' gets value { length: 6 }
-  const arr = minimumLength([1, 2, 3], 6);
+  const arr3 = minimumLength([1, 2, 3], 6);
   // and crashes here because arrays have
   // a 'slice' method, but not the returned object!
-  console.log(arr.slice(0));
+  console.log(arr3?.slice(0));
 
   // Specifying Type Arguments
   function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {

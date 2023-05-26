@@ -55,7 +55,7 @@ export default function () {
     name: "John Doe",
     email: "john@example.com",
     age: 22,
-    isAdmin:
+    isAdmin: false,
   };
 
   user.name = "Jane Smith"; // Compilation error: Cannot assign to 'name' because it is a read-only property.
@@ -64,15 +64,15 @@ export default function () {
   function parseFromLocalStorage<T>(key: string): T | null {
     const value = localStorage.getItem(key);
     if (value) {
-        return JSON.parse(value) as T;
+      return JSON.parse(value) as T;
     }
     return null;
   }
-  
+
   interface User {
     name: string;
     age: number;
   }
-  
+
   const storedUser = parseFromLocalStorage<User>("user"); // storedUser is of type User | null
 }
